@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resinn Craftss — Handmade Custom Resin Creations</title>
+  <meta name="description" content="Discover beautiful handmade custom resin keychains, coasters, trays, bookmarks, and more. Unique artisan creations made with love." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <header class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#home" class="nav-logo">
+        <img src="logo.jpeg" alt="Resinn Craftss Logo" class="logo-img" />
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#shop" class="nav-link">Shop</a>
+        <a href="#custom" class="nav-link">Custom Orders</a>
+        <a href="#portfolio" class="nav-link">Portfolio</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="https://wa.me/your-number" target="_blank" class="btn-whatsapp" id="whatsappNavBtn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Order via WhatsApp
+        </a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="home">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <span class="hero-tag">✦ Handcrafted with Love ✦</span>
+      <h1 class="hero-title">Handmade Custom<br /><em>Resin Creations</em></h1>
+      <p class="hero-subtitle">Unique artisan pieces made to order — keychains, coasters, trays, bookmarks &amp; more. Every piece tells a story.</p>
+      <div class="hero-cta">
+        <a href="#shop" class="btn-primary" id="heroShopBtn">Shop Now</a>
+        <a href="#custom" class="btn-outline" id="heroCustomBtn">Request Custom Order</a>
+      </div>
+    </div>
+    <div class="hero-image-wrap">
+      <img src="hero.png" alt="Resinn Craftss handmade resin products" class="hero-img" />
+      <div class="hero-badge">
+        <span class="badge-number">100%</span>
+        <span class="badge-text">Handmade</span>
+      </div>
+    </div>
+    <div class="hero-scroll-hint">
+      <span>Scroll to explore</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ===== WHY BUY FROM US ===== -->
+  <section class="why-us" id="why">
+    <div class="container">
+      <div class="section-label">Why Choose Us</div>
+      <h2 class="section-title">Crafted Differently</h2>
+      <div class="features-grid">
+        <div class="feature-card" data-aos="fade-up">
+          <div class="feature-icon">🌸</div>
+          <h3>100% Handmade</h3>
+          <p>Every piece is individually handcrafted with care, love, and meticulous attention to detail.</p>
+        </div>
+        <div class="feature-card" data-aos="fade-up" style="--delay:0.1s">
+          <div class="feature-icon">✨</div>
+          <h3>Custom Made</h3>
+          <p>We bring your vision to life. Share your idea and get a one-of-a-kind creation made just for you.</p>
+        </div>
+        <div class="feature-card" data-aos="fade-up" style="--delay:0.2s">
+          <div class="feature-icon">📦</div>
+          <h3>Safe Packaging</h3>
+          <p>Each order is carefully packaged to ensure your item arrives safely and in perfect condition.</p>
+        </div>
+        <div class="feature-card" data-aos="fade-up" style="--delay:0.3s">
+          <div class="feature-icon">💖</div>
+          <h3>Perfect Gifts</h3>
+          <p>Thoughtful, personal, and unique — our pieces make unforgettable gifts for every occasion.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SHOP ===== -->
+  <section class="shop" id="shop">
+    <div class="container">
+      <div class="section-label">Our Products</div>
+      <h2 class="section-title">Shop the Collection</h2>
+      <p class="section-sub">Explore our handcrafted resin pieces — each one made with genuine love and artistry.</p>
+
+      <div class="products-grid">
+
+        <div class="product-card" id="productKeychains">
+          <div class="product-img-wrap">
+            <img src="keychains.png" alt="Resin Keychains" class="product-img" />
+            <div class="product-overlay">
+              <a href="https://wa.me/your-number?text=Hi! I'd like to order Resin Keychains" target="_blank" class="btn-order">Order Now</a>
+            </div>
+            <span class="product-tag">Bestseller</span>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Resin Keychains</h3>
+            <p class="product-desc">Floral pressed, geometric & custom designs — beautiful on any keyring.</p>
+            <div class="product-footer">
+              <span class="product-price">Starting ₹149</span>
+              <a href="https://wa.me/your-number?text=Hi! I'd like to order Resin Keychains" target="_blank" class="btn-sm">Order →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card" id="productCoasters">
+          <div class="product-img-wrap">
+            <img src="coasters.png" alt="Resin Coasters" class="product-img" />
+            <div class="product-overlay">
+              <a href="https://wa.me/your-number?text=Hi! I'd like to order Resin Coasters" target="_blank" class="btn-order">Order Now</a>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Resin Coasters</h3>
+            <p class="product-desc">Geode, floral & abstract styles — protect your surfaces in style.</p>
+            <div class="product-footer">
+              <span class="product-price">Starting ₹299</span>
+              <a href="https://wa.me/your-number?text=Hi! I'd like to order Resin Coasters" target="_blank" class="btn-sm">Order →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card" id="productTrays">
+          <div class="product-img-wrap">
+            <img src="tray.png" alt="Resin Trays" class="product-img" />
+            <div class="product-overlay">
+              <a href="https://wa.me/your-number?text=Hi! I'd like to order Resin Trays" target="_blank" class="btn-order">Order Now</a>
+            </div>
+            <span class="product-tag new">New</span>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Resin Trays</h3>
+            <p class="product-desc">Elegant vanity & jewellery trays with botanical embeddings and gold accents.</p>
+            <div class="product-footer">
+              <span class="product-price">Starting ₹499</span>
+              <a href="https://wa.me/your-number?text=Hi! I'd like to order Resin Trays" target="_blank" class="btn-sm">Order →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card" id="productBookmarks">
+          <div class="product-img-wrap">
+            <img src="bookmarks.png" alt="Resin Bookmarks" class="product-img" />
+            <div class="product-overlay">
+              <a href="https://wa.me/your-number?text=Hi! I'd like to order Resin Bookmarks" target="_blank" class="btn-order">Order Now</a>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Resin Bookmarks</h3>
+            <p class="product-desc">Transparent resin with dried flowers & gold foil — a reader's dream.</p>
+            <div class="product-footer">
+              <span class="product-price">Starting ₹99</span>
+              <a href="https://wa.me/your-number?text=Hi! I'd like to order Resin Bookmarks" target="_blank" class="btn-sm">Order →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card" id="productFrames">
+          <div class="product-img-wrap">
+            <img src="frames.png" alt="Resin Photo Frames" class="product-img" />
+            <div class="product-overlay">
+              <a href="https://wa.me/your-number?text=Hi! I'd like to order Resin Photo Frames" target="_blank" class="btn-order">Order Now</a>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Photo Frames</h3>
+            <p class="product-desc">Preserve your memories in a beautiful resin frame adorned with botanicals.</p>
+            <div class="product-footer">
+              <span class="product-price">Starting ₹399</span>
+              <a href="https://wa.me/your-number?text=Hi! I'd like to order Resin Photo Frames" target="_blank" class="btn-sm">Order →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card" id="productCustom">
+          <div class="product-img-wrap">
+            <img src="custom.png" alt="Custom Name Plates" class="product-img" />
+            <div class="product-overlay">
+              <a href="https://wa.me/your-number?text=Hi! I'd like to order Custom Name Plates" target="_blank" class="btn-order">Order Now</a>
+            </div>
+            <span class="product-tag">Custom</span>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Custom Name Plates</h3>
+            <p class="product-desc">Personalised resin name art — perfect as a gift or home decor piece.</p>
+            <div class="product-footer">
+              <span class="product-price">Starting ₹349</span>
+              <a href="https://wa.me/your-number?text=Hi! I'd like to order Custom Name Plates" target="_blank" class="btn-sm">Order →</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HOW IT WORKS ===== -->
+  <section class="how-it-works" id="process">
+    <div class="container">
+      <div class="section-label">Simple Process</div>
+      <h2 class="section-title">How It Works</h2>
+      <div class="steps-row">
+        <div class="step">
+          <div class="step-num">01</div>
+          <div class="step-icon">🎨</div>
+          <h3>Choose Product</h3>
+          <p>Browse our shop or describe your dream piece.</p>
+        </div>
+        <div class="step-arrow">→</div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <div class="step-icon">📲</div>
+          <h3>Place Order</h3>
+          <p>Contact us via WhatsApp or fill the order form.</p>
+        </div>
+        <div class="step-arrow">→</div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <div class="step-icon">✂️</div>
+          <h3>We Create It</h3>
+          <p>We handcraft your piece with love and precision.</p>
+        </div>
+        <div class="step-arrow">→</div>
+        <div class="step">
+          <div class="step-num">04</div>
+          <div class="step-icon">🎁</div>
+          <h3>Delivered to You</h3>
+          <p>Safely packaged and shipped right to your doorstep.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CUSTOM ORDERS ===== -->
+  <section class="custom-section" id="custom">
+    <div class="custom-bg"></div>
+    <div class="container custom-inner">
+      <div class="custom-text">
+        <div class="section-label">Custom Orders</div>
+        <h2 class="section-title">Make It Yours</h2>
+        <p>Have something specific in mind? We love bringing ideas to life! Send us your concept, upload reference photos, and we'll create a keepsake uniquely tailored for you.</p>
+        <ul class="custom-perks">
+          <li>✦ Personalized name, date, or message</li>
+          <li>✦ Choose your colors & embeddings</li>
+          <li>✦ Reference photos welcome</li>
+          <li>✦ Quote within 24 hours</li>
+        </ul>
+        <a href="https://wa.me/your-number?text=Hi! I'd like to request a custom order" target="_blank" class="btn-primary" id="customWhatsAppBtn">
+          Request a Custom Quote
+        </a>
+      </div>
+      <div class="custom-form-wrap">
+        <form class="custom-form" id="customOrderForm" onsubmit="handleCustomOrder(event)">
+          <h3>Tell Us About Your Order</h3>
+          <div class="form-group">
+            <label for="custName">Your Name</label>
+            <input type="text" id="custName" placeholder="e.g. Priya Sharma" required />
+          </div>
+          <div class="form-group">
+            <label for="custPhone">WhatsApp Number</label>
+            <input type="tel" id="custPhone" placeholder="+91 98765 43210" required />
+          </div>
+          <div class="form-group">
+            <label for="custProduct">Product Type</label>
+            <select id="custProduct">
+              <option value="">Select a product...</option>
+              <option>Keychain</option>
+              <option>Coaster</option>
+              <option>Tray</option>
+              <option>Bookmark</option>
+              <option>Photo Frame</option>
+              <option>Name Plate</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="custDesc">Describe Your Idea</label>
+            <textarea id="custDesc" rows="3" placeholder="Colors, design, occasion, any special details..."></textarea>
+          </div>
+          <button type="submit" class="btn-primary full-width" id="submitCustomOrder">Send Request ✦</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PORTFOLIO ===== -->
+  <section class="portfolio" id="portfolio">
+    <div class="container">
+      <div class="section-label">Our Work</div>
+      <h2 class="section-title">Portfolio</h2>
+      <p class="section-sub">A gallery of past creations. Every piece is one-of-a-kind.</p>
+      <div class="portfolio-grid">
+        <div class="portfolio-item" style="background-image:url('hero.png')"></div>
+        <div class="portfolio-item tall" style="background-image:url('keychains.png')"></div>
+        <div class="portfolio-item" style="background-image:url('coasters.png')"></div>
+        <div class="portfolio-item" style="background-image:url('tray.png')"></div>
+        <div class="portfolio-item tall" style="background-image:url('bookmarks.png')"></div>
+        <div class="portfolio-item" style="background-image:url('frames.png')"></div>
+        <div class="portfolio-item" style="background-image:url('custom.png')"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIALS ===== -->
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <div class="section-label">Kind Words</div>
+      <h2 class="section-title">What Customers Say</h2>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p>"The keychain I ordered was absolutely stunning! The quality is amazing and it arrived so beautifully packaged. Will definitely order again!"</p>
+          <div class="reviewer">— Aarushi M.</div>
+        </div>
+        <div class="testimonial-card featured">
+          <div class="stars">★★★★★</div>
+          <p>"I got a custom name plate made for my friend's birthday and she absolutely loved it. So unique, so thoughtful. The process was super easy too!"</p>
+          <div class="reviewer">— Riya K.</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p>"The coaster set is a showstopper! Everyone who visits asks where I got them. The detailing on the pressed flowers is just perfect."</p>
+          <div class="reviewer">— Sneha T.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section class="about" id="about">
+    <div class="container about-inner">
+      <div class="about-image-wrap">
+        <img src="logo.jpeg" alt="Resinn Craftss brand" class="about-img" />
+        <div class="about-floater">Crafting since 2023</div>
+      </div>
+      <div class="about-text">
+        <div class="section-label">Our Story</div>
+        <h2 class="section-title">Behind the Brand</h2>
+        <p>Resinn Craftss was born from a deep love of handcrafting and a desire to create meaningful keepsakes. What started as a hobby quickly blossomed into a passion-driven small business.</p>
+        <p>Every single product is handmade — poured, cured, and finished entirely by hand. No factories, no shortcuts — just genuine artistry and love that goes into each creation.</p>
+        <p><strong>Our mission:</strong> To craft beautiful, personalised pieces that celebrate life's moments and bring joy to the people who receive them.</p>
+        <div class="about-stats">
+          <div class="stat"><span class="stat-num">500+</span><span class="stat-label">Happy Customers</span></div>
+          <div class="stat"><span class="stat-num">1000+</span><span class="stat-label">Pieces Crafted</span></div>
+          <div class="stat"><span class="stat-num">100%</span><span class="stat-label">Handmade</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="section-label">Get in Touch</div>
+      <h2 class="section-title">Let's Create Together</h2>
+      <p class="section-sub">Have questions? Want to place an order? We'd love to hear from you.</p>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <div class="contact-icon">💬</div>
+          <h3>WhatsApp</h3>
+          <p>Fastest way to reach us. Message us anytime!</p>
+          <a href="https://wa.me/your-number" target="_blank" class="btn-outline" id="whatsappContactBtn">Chat With Us</a>
+        </div>
+        <div class="contact-card">
+          <div class="contact-icon">📸</div>
+          <h3>Instagram</h3>
+          <p>See our latest creations and behind-the-scenes content.</p>
+          <a href="https://instagram.com/resinncraftss" target="_blank" class="btn-outline" id="instagramBtn">@ResinCraftss</a>
+        </div>
+        <div class="contact-card">
+          <div class="contact-icon">✉️</div>
+          <h3>Email</h3>
+          <p>For bulk orders, collaborations, or press enquiries.</p>
+          <a href="mailto:hello@resinncraftss.com" class="btn-outline" id="emailContactBtn">Send Email</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FLOATING WHATSAPP ===== -->
+  <a href="https://wa.me/your-number?text=Hi! I found your website and I'd love to place an order 🌸" target="_blank" class="whatsapp-float" id="whatsappFloat" aria-label="Order on WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <span class="whatsapp-pulse"></span>
+  </a>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="logo.jpeg" alt="Resinn Craftss" class="footer-logo" />
+          <p>Let's turn your ideas into handcrafted keepsakes. ✨</p>
+          <div class="footer-socials">
+            <a href="https://instagram.com/resinncraftss" target="_blank" aria-label="Instagram" id="footerInstagram">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+            <a href="https://wa.me/your-number" target="_blank" aria-label="WhatsApp" id="footerWhatsapp">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </a>
+            <a href="mailto:hello@resinncraftss.com" aria-label="Email" id="footerEmail">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-links-wrap">
+          <div class="footer-col">
+            <h4>Shop</h4>
+            <a href="#shop">Keychains</a>
+            <a href="#shop">Coasters</a>
+            <a href="#shop">Trays</a>
+            <a href="#shop">Bookmarks</a>
+            <a href="#shop">Photo Frames</a>
+            <a href="#shop">Custom Name Plates</a>
+          </div>
+          <div class="footer-col">
+            <h4>Information</h4>
+            <a href="#about">About Us</a>
+            <a href="#custom">Custom Orders</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#contact">Contact</a>
+          </div>
+          <div class="footer-col">
+            <h4>Policies</h4>
+            <a href="#">Shipping Policy</a>
+            <a href="#">Returns & Refunds</a>
+            <a href="#">FAQs</a>
+            <a href="#">Privacy Policy</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Resinn Craftss | All Rights Reserved</p>
+        <p class="footer-love">Made with 🌸 by Resinn Craftss</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
