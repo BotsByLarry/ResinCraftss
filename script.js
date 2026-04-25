@@ -237,9 +237,96 @@ window.addEventListener('load', () => {
       requestAnimationFrame(() => {
         setTimeout(() => {
           el.style.opacity = '1';
-          el.style.transform = 'translateY(0)';
-        }, 100);
-      });
+  // ── Firebase Configuration ──
+const firebaseConfig = {
+  apiKey: "AIzaSyAMG5t4q0XW48ErMuRxZAbEqQewETzryVw",
+  authDomain: "resincraftss-b7a2e.firebaseapp.com",
+  projectId: "resincraftss-b7a2e",
+  storageBucket: "resincraftss-b7a2e.firebasestorage.app",
+  messagingSenderId: "128573889928",
+  appId: "1:128573889928:web:ba0545f981f562c7c16e3d"
+};
+
+// Initialize Firebase
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
+}
+const db = firebase.firestore();
+
+const DEFAULT_PRODUCTS = [
+  { id: '1', name: 'Resin Keychains', desc: 'Floral pressed, geometric & custom designs — beautiful on any keyring.', price: '149', tag: 'Bestseller', image: 'keychains.png' },
+  { id: '2', name: 'Resin Coasters', desc: 'Geode, floral & abstract styles — protect your surfaces in style.', price: '299', tag: '', image: 'coasters.png' },
+  { id: '3', name: 'Resin Trays', desc: 'Elegant vanity & jewellery trays with botanical embeddings and gold accents.', price: '499', tag: 'New', image: 'tray.png' },
+  { id: '4', name: 'Resin Bookmarks', desc: 'Transparent resin with dried flowers & gold foil — a reader\'s dream.', price: '99', tag: '', image: 'bookmarks.png' },
+  { id: '5', name: 'Photo Frames', desc: 'Preserve your memories in a beautiful resin frame adorned with botanicals.', price: '399', tag: '', image: 'frames.png' },
+  { id: '6', name: 'Custom Name Plates', desc: 'Personalised resin name art — perfect as a gift or home decor piece.', price: '349', tag: 'Custom', image: 'custom.png' }
+];
+
+async function renderMainProducts() {
+  const grid = document.getElementById('mainProductsGrid');
+  if (!grid) return;
+
+  grid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; padding: 3rem; color: var(--accent);">Bringing the collection to life...</p>';
+
+  try {
+    const snapshot = await db.collection('products').orderBy('createdAt', 'desc').get();
+    let products = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+
+    // If no products in DB yet, show defaults
+    if (products.length === 0) {
+      products = DEFAULT_PRODUCTS;
+    }
+
+    grid.innerHTML = '';
+
+    products.forEach((p, i) => {
+      const card = document.createElement('div');
+      card.className = 'product-card';
+      card.id = `product-${p.id}`;
+      
+      const tagHtml = p.tag ? `<span class="product-tag ${p.tag.toLowerCase()}">${p.tag}</span>` : '';
+      const whatsappLink = `https://wa.me/your-number?text=${encodeURIComponent(`Hi! I'd like to order: ${p.name} 🌸`)}`;
+
+      card.innerHTML = `
+        <div class="product-img-wrap">
+          <img src="${p.image}" alt="${p.name}" class="product-img" onerror="this.src='hero.png'" />
+          <div class="product-overlay">
+            <a href="${whatsappLink}" target="_blank" class="btn-order">Order Now</a>
+          </div>
+          ${tagHtml}
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">${p.name}</h3>
+          <p class="product-desc">${p.desc}</p>
+          <div class="product-footer">
+            <span class="product-price">Starting ₹${p.price}</span>
+            <a href="${whatsappLink}" target="_blank" class="btn-sm">Order →</a>
+          </div>
+        </div>
+      `;
+      grid.appendChild(card);
+
+      // Animation trigger
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(28px)';
+      card.style.transition = `opacity 0.55s ease ${i * 0.07}s, transform 0.55s ease ${i * 0.07}s`;
+      
+      if (typeof visibilityObserver !== 'undefined') {
+        visibilityObserver.observe(card);
+      }
+    });
+  } catch (error) {
+    console.error("Error loading products from Firebase:", error);
+    // Fallback to defaults on error
+    grid.innerHTML = '';
+    DEFAULT_PRODUCTS.forEach(p => {/* rendering logic for defaults */});
+  }
+}
+
+window.addEventListener('DOMContentLoaded', renderMainProducts);r.observe(card);
     }
   });
-});
+}
+
+// Initial render
+window.addEventListener('DOMContentLoaded', renderMainProducts);
