@@ -101,24 +101,17 @@ function renderProductsList() {
 // --- Modal & Form ---
 const modal = document.getElementById('productModal');
 const form = document.getElementById('productForm');
-const imageInput = document.getElementById('imageInput');
-const imagePreview = document.getElementById('imagePreview');
-const imagePlaceholder = document.getElementById('imagePlaceholder');
-const imagePreviewArea = document.getElementById('imagePreviewArea');
+const pImage = document.getElementById('pImage');
 
-imagePreviewArea.onclick = () => imageInput.click();
-
-imageInput.onchange = (e) => {
-  const file = e.target.files[0];
-  if (file) {
-    currentImageData = file; // Store the file object
-    const reader = new FileReader();
-    reader.onload = (re) => {
-      imagePreview.src = re.target.result;
-      imagePreview.style.display = 'block';
-      imagePlaceholder.style.display = 'none';
-    };
-    reader.readAsDataURL(file);
+pImage.oninput = (e) => {
+  const url = e.target.value;
+  if (url) {
+    imagePreview.src = url;
+    imagePreview.style.display = 'block';
+    imagePlaceholder.style.display = 'none';
+  } else {
+    imagePreview.style.display = 'none';
+    imagePlaceholder.style.display = 'flex';
   }
 };
 
@@ -140,8 +133,8 @@ function openModal(editId = null) {
     document.getElementById('pPrice').value = p.price;
     document.getElementById('pTag').value = p.tag;
     document.getElementById('pStock').checked = p.isOutOfStock || false;
+    document.getElementById('pImage').value = p.image;
     
-    currentImageData = p.image; // Store existing URL
     imagePreview.src = p.image;
     imagePreview.style.display = 'block';
     imagePlaceholder.style.display = 'none';
@@ -179,22 +172,7 @@ form.onsubmit = async (e) => {
   saveBtn.innerText = 'Uploading...';
 
   try {
-    let imageUrl = currentImageData;
-
-    // If currentImageData is a File object, upload it
-    if (currentImageData instanceof File) {
-      console.log("Starting image upload to Firebase Storage...");
-      const storageRef = storage.ref(`products/${Date.now()}_${currentImageData.name}`);
-      
-      try {
-        const uploadTask = await storageRef.put(currentImageData);
-        imageUrl = await uploadTask.ref.getDownloadURL();
-        console.log("Image uploaded successfully:", imageUrl);
-      } catch (storageErr) {
-        console.error("Storage Error:", storageErr);
-        throw new Error(`Image upload failed: ${storageErr.message}. Check your Firebase Storage rules.`);
-      }
-    }
+    const imageUrl = document.getElementById('pImage').value;
 
     const productData = {
       name,
