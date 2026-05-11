@@ -111,7 +111,7 @@ function handleCustomOrder(e) {
   );
 
   // Open WhatsApp with pre-filled message
-  window.open(`https://wa.me/your-number?text=${message}`, '_blank');
+  window.open(`https://wa.me/919831220021?text=${message}`, '_blank');
 
   showToast('Opening WhatsApp... we\'ll be in touch soon! 🌸', 'success');
   e.target.reset();
@@ -279,7 +279,7 @@ async function renderMainProducts() {
       
       const tagHtml = p.tag ? `<span class="product-tag ${p.tag.toLowerCase()}">${p.tag}</span>` : '';
       const stockTagHtml = p.isOutOfStock ? `<span class="product-tag out-of-stock">Out of Stock</span>` : '';
-      const whatsappLink = `https://wa.me/your-number?text=${encodeURIComponent(`Hi! I'd like to order: ${p.name} 🌸`)}`;
+      const whatsappLink = `https://wa.me/919831220021?text=${encodeURIComponent(`Hi! I'd like to order: ${p.name} 🌸`)}`;
 
       card.innerHTML = `
         <div class="product-img-wrap">
