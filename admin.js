@@ -124,6 +124,7 @@ imageInput.onchange = (e) => {
 
 function openModal(editId = null) {
   modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
   form.reset();
   document.getElementById('editId').value = '';
   imagePreview.style.display = 'none';
@@ -151,6 +152,7 @@ function openModal(editId = null) {
 
 function closeModal() {
   modal.classList.remove('active');
+  document.body.style.overflow = '';
 }
 
 document.getElementById('addItemBtn').onclick = () => openModal();
