@@ -101,17 +101,48 @@ function renderProductsList() {
 // --- Modal & Form ---
 const modal = document.getElementById('productModal');
 const form = document.getElementById('productForm');
-const pImage = document.getElementById('pImage');
+const imageInput = document.getElementById('imageInput');
+const imagePreview = document.getElementById('imagePreview');
+const imagePlaceholder = document.getElementById('imagePlaceholder');
+const imagePreviewArea = document.getElementById('imagePreviewArea');
 
-pImage.oninput = (e) => {
-  const url = e.target.value;
-  if (url) {
-    imagePreview.src = url;
-    imagePreview.style.display = 'block';
-    imagePlaceholder.style.display = 'none';
-  } else {
-    imagePreview.style.display = 'none';
-    imagePlaceholder.style.display = 'flex';
+let currentBase64Image = null;
+
+imagePreviewArea.onclick = () => imageInput.click();
+
+imageInput.onchange = (e) => {
+  const file = e.target.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      const img = new Image();
+      img.onload = () => {
+        // --- Image Compression Logic ---
+        const canvas = document.createElement('canvas');
+        const MAX_WIDTH = 800; // Optimal for web
+        let width = img.width;
+        let height = img.height;
+
+        if (width > MAX_WIDTH) {
+          height *= MAX_WIDTH / width;
+          width = MAX_WIDTH;
+        }
+
+        canvas.width = width;
+        canvas.height = height;
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0, width, height);
+        
+        // Convert to compressed JPEG (quality 0.7)
+        currentBase64Image = canvas.toDataURL('image/jpeg', 0.7);
+        
+        imagePreview.src = currentBase64Image;
+        imagePreview.style.display = 'block';
+        imagePlaceholder.style.display = 'none';
+      };
+      img.src = event.target.result;
+    };
+    reader.readAsDataURL(file);
   }
 };
 
@@ -122,6 +153,7 @@ function openModal(editId = null) {
   document.getElementById('editId').value = '';
   imagePreview.style.display = 'none';
   imagePlaceholder.style.display = 'flex';
+  currentBase64Image = null;
   currentImageData = null;
 
   if (editId) {
@@ -133,8 +165,8 @@ function openModal(editId = null) {
     document.getElementById('pPrice').value = p.price;
     document.getElementById('pTag').value = p.tag;
     document.getElementById('pStock').checked = p.isOutOfStock || false;
-    document.getElementById('pImage').value = p.image;
     
+    currentBase64Image = p.image;
     imagePreview.src = p.image;
     imagePreview.style.display = 'block';
     imagePlaceholder.style.display = 'none';
@@ -172,7 +204,12 @@ form.onsubmit = async (e) => {
   saveBtn.innerText = 'Uploading...';
 
   try {
-    const imageUrl = document.getElementById('pImage').value;
+    const imageUrl = currentBase64Image;
+
+    if (!imageUrl) {
+      alert("Please select an image first!");
+      return;
+    }
 
     const productData = {
       name,
