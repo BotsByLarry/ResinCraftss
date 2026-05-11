@@ -253,14 +253,7 @@ if (!firebase.apps.length) {
 }
 const db = firebase.firestore();
 
-const DEFAULT_PRODUCTS = [
-  { id: '1', name: 'Resin Keychains', desc: 'Floral pressed, geometric & custom designs — beautiful on any keyring.', price: '149', tag: 'Bestseller', image: 'keychains.png' },
-  { id: '2', name: 'Resin Coasters', desc: 'Geode, floral & abstract styles — protect your surfaces in style.', price: '299', tag: '', image: 'coasters.png' },
-  { id: '3', name: 'Resin Trays', desc: 'Elegant vanity & jewellery trays with botanical embeddings and gold accents.', price: '499', tag: 'New', image: 'tray.png' },
-  { id: '4', name: 'Resin Bookmarks', desc: 'Transparent resin with dried flowers & gold foil — a reader\'s dream.', price: '99', tag: '', image: 'bookmarks.png' },
-  { id: '5', name: 'Photo Frames', desc: 'Preserve your memories in a beautiful resin frame adorned with botanicals.', price: '399', tag: '', image: 'frames.png' },
-  { id: '6', name: 'Custom Name Plates', desc: 'Personalised resin name art — perfect as a gift or home decor piece.', price: '349', tag: 'Custom', image: 'custom.png' }
-];
+const DEFAULT_PRODUCTS = [];
 
 async function renderMainProducts() {
   const grid = document.getElementById('mainProductsGrid');
@@ -285,22 +278,24 @@ async function renderMainProducts() {
       card.id = `product-${p.id}`;
       
       const tagHtml = p.tag ? `<span class="product-tag ${p.tag.toLowerCase()}">${p.tag}</span>` : '';
+      const stockTagHtml = p.isOutOfStock ? `<span class="product-tag out-of-stock">Out of Stock</span>` : '';
       const whatsappLink = `https://wa.me/your-number?text=${encodeURIComponent(`Hi! I'd like to order: ${p.name} 🌸`)}`;
 
       card.innerHTML = `
         <div class="product-img-wrap">
           <img src="${p.image}" alt="${p.name}" class="product-img" onerror="this.src='hero.png'" />
           <div class="product-overlay">
-            <a href="${whatsappLink}" target="_blank" class="btn-order">Order Now</a>
+            ${p.isOutOfStock ? '<span class="btn-order disabled">Out of Stock</span>' : `<a href="${whatsappLink}" target="_blank" class="btn-order">Order Now</a>`}
           </div>
           ${tagHtml}
+          ${stockTagHtml}
         </div>
         <div class="product-info">
           <h3 class="product-name">${p.name}</h3>
           <p class="product-desc">${p.desc}</p>
           <div class="product-footer">
             <span class="product-price">Starting ₹${p.price}</span>
-            <a href="${whatsappLink}" target="_blank" class="btn-sm">Order →</a>
+            ${p.isOutOfStock ? '<span class="btn-sm disabled">Out of Stock</span>' : `<a href="${whatsappLink}" target="_blank" class="btn-sm">Order →</a>`}
           </div>
         </div>
       `;
@@ -323,10 +318,47 @@ async function renderMainProducts() {
   }
 }
 
-window.addEventListener('DOMContentLoaded', renderMainProducts);r.observe(card);
-    }
-  });
-}
-
-// Initial render
 window.addEventListener('DOMContentLoaded', renderMainProducts);
+// ── Policy Modals ──
+const POLICIES = {
+  shipping: {
+    title: 'Shipping Policy',
+    text: 'We aim to process and ship all orders as quickly as possible. Orders are usually dispatched within 5-7 business days. Delivery time may vary depending on your location. Once your order is shipped, tracking details will be shared with you. We are not responsible for delays caused by courier services or unforeseen circumstances.'
+  },
+  returns: {
+    title: 'Returns & Refunds',
+    text: 'Since most products are handmade/customized, returns or exchanges are not accepted unless the product arrives damaged or incorrect. Please contact us within 24 hours of receiving your order along with clear pictures for assistance as well as proper video of unboxing.'
+  },
+  faq: {
+    title: 'Frequently Asked Questions',
+    text: 'For any questions regarding orders, customization, payments, or delivery, feel free to contact us anytime. We are always happy to help and make your shopping experience smooth and easy.'
+  },
+  privacy: {
+    title: 'Privacy Policy',
+    text: 'Your personal information such as name, contact details, and address is kept safe and confidential. We only use your information for order processing and communication purposes and never share it with third parties without permission'
+  }
+};
+
+window.openPolicy = function(key) {
+  const modal = document.getElementById('policyModal');
+  const textDiv = document.getElementById('policyText');
+  const policy = POLICIES[key];
+  if (modal && textDiv && policy) {
+    textDiv.innerHTML = `<h2>${policy.title}</h2><p>${policy.text}</p>`;
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+};
+
+window.closePolicy = function() {
+  const modal = document.getElementById('policyModal');
+  if (modal) {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+};
+
+// Close on background click
+document.getElementById('policyModal')?.addEventListener('click', (e) => {
+  if (e.target.id === 'policyModal') window.closePolicy();
+});

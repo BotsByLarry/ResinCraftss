@@ -15,6 +15,7 @@
   --text-dark: hsl(340, 15%, 18%);
   --text-mid: hsl(340, 10%, 42%);
   --text-light: hsl(340, 8%, 62%);
+  --baby-pink: hsl(345, 100%, 95%);
   --white: #fff;
   --card-bg: hsl(0, 0%, 100%);
   --shadow-sm: 0 2px 12px hsla(345, 50%, 60%, 0.10);
@@ -30,7 +31,7 @@
 html { scroll-behavior: smooth; }
 body {
   font-family: 'Jost', sans-serif;
-  background: var(--cream);
+  background: var(--baby-pink);
   color: var(--text-dark);
   overflow-x: hidden;
   line-height: 1.7;
@@ -122,6 +123,11 @@ ul { list-style: none; }
   white-space: nowrap;
 }
 .btn-sm:hover { color: var(--blush-deep); transform: translateX(3px); }
+.btn-sm.disabled {
+  color: #999;
+  cursor: not-allowed;
+  transform: none;
+}
 
 .btn-order {
   display: inline-flex;
@@ -136,6 +142,12 @@ ul { list-style: none; }
   transition: var(--transition);
 }
 .btn-order:hover { background: var(--blush); transform: scale(1.04); }
+.btn-order.disabled {
+  background: #f0f0f0;
+  color: #999;
+  cursor: not-allowed;
+  transform: none;
+}
 
 .btn-whatsapp {
   display: inline-flex;
@@ -371,7 +383,7 @@ ul { list-style: none; }
    ============================================================ */
 .why-us {
   padding: 7rem 2rem;
-  background: var(--cream);
+  background: var(--baby-pink);
 }
 .why-us .container { text-align: center; }
 .features-grid {
@@ -409,7 +421,7 @@ ul { list-style: none; }
    ============================================================ */
 .shop {
   padding: 7rem 2rem;
-  background: linear-gradient(180deg, var(--cream) 0%, hsl(345, 50%, 96%) 100%);
+  background: linear-gradient(180deg, var(--baby-pink) 0%, hsl(345, 50%, 94%) 100%);
 }
 .products-grid {
   display: grid;
@@ -466,6 +478,7 @@ ul { list-style: none; }
   border-radius: 50px;
 }
 .product-tag.new { background: var(--sage); }
+.product-tag.out-of-stock { background: var(--admin-danger, #e05a6a); }
 
 .product-info { padding: 1.5rem; }
 .product-name {
@@ -500,7 +513,7 @@ ul { list-style: none; }
    ============================================================ */
 .how-it-works {
   padding: 7rem 2rem;
-  background: var(--cream);
+  background: var(--baby-pink);
   text-align: center;
 }
 .steps-row {
@@ -668,7 +681,7 @@ ul { list-style: none; }
    ============================================================ */
 .testimonials {
   padding: 7rem 2rem;
-  background: var(--cream);
+  background: var(--baby-pink);
   text-align: center;
 }
 .testimonials-grid {
@@ -716,7 +729,7 @@ ul { list-style: none; }
    ============================================================ */
 .about {
   padding: 7rem 2rem;
-  background: linear-gradient(180deg, hsl(345, 50%, 96%) 0%, var(--cream) 100%);
+  background: linear-gradient(180deg, hsl(345, 50%, 94%) 0%, var(--baby-pink) 100%);
 }
 .about-inner {
   display: grid;
@@ -1007,3 +1020,77 @@ body.nav-open .nav-links {
 body.nav-open .hamburger span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
 body.nav-open .hamburger span:nth-child(2) { opacity: 0; }
 body.nav-open .hamburger span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+/* ============================================================
+   POLICY MODAL
+   ============================================================ */
+.policy-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+.policy-modal.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+.policy-content {
+  background: var(--white);
+  width: 90%;
+  max-width: 600px;
+  padding: 3rem;
+  border-radius: 24px;
+  position: relative;
+  box-shadow: var(--shadow-lg);
+  transform: translateY(20px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.policy-modal.active .policy-content {
+  transform: translateY(0);
+}
+.policy-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: var(--baby-pink);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--rose-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+.policy-close:hover {
+  background: var(--blush);
+  transform: rotate(90deg);
+}
+#policyText h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  color: var(--text-dark);
+  margin-bottom: 1.5rem;
+}
+#policyText p {
+  color: var(--text-mid);
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+@media (max-width: 768px) {
+  .policy-content {
+    padding: 2rem;
+  }
+}

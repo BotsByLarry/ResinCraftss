@@ -75,6 +75,7 @@ function renderProductsList() {
         <h3>${p.name}</h3>
         <p>${p.desc}</p>
         <span class="admin-product-price">₹${p.price}</span>
+        ${p.isOutOfStock ? '<span class="stock-badge badge-out">Out of Stock</span>' : '<span class="stock-badge badge-in">In Stock</span>'}
       </div>
       <div class="admin-product-actions">
         <button class="btn-icon btn-edit" data-id="${p.id}">
@@ -137,6 +138,7 @@ function openModal(editId = null) {
     document.getElementById('pDesc').value = p.desc;
     document.getElementById('pPrice').value = p.price;
     document.getElementById('pTag').value = p.tag;
+    document.getElementById('pStock').checked = p.isOutOfStock || false;
     
     currentImageData = p.image; // Store existing URL
     imagePreview.src = p.image;
@@ -164,6 +166,7 @@ form.onsubmit = async (e) => {
   const desc = document.getElementById('pDesc').value;
   const price = document.getElementById('pPrice').value;
   const tag = document.getElementById('pTag').value;
+  const isOutOfStock = document.getElementById('pStock').checked;
 
   if (!currentImageData) {
     alert('Please select an image');
@@ -188,6 +191,7 @@ form.onsubmit = async (e) => {
       desc,
       price,
       tag,
+      isOutOfStock,
       image: imageUrl,
       updatedAt: firebase.firestore.FieldValue.serverTimestamp()
     };
