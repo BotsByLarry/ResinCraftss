@@ -183,9 +183,17 @@ form.onsubmit = async (e) => {
 
     // If currentImageData is a File object, upload it
     if (currentImageData instanceof File) {
+      console.log("Starting image upload to Firebase Storage...");
       const storageRef = storage.ref(`products/${Date.now()}_${currentImageData.name}`);
-      const uploadTask = await storageRef.put(currentImageData);
-      imageUrl = await uploadTask.ref.getDownloadURL();
+      
+      try {
+        const uploadTask = await storageRef.put(currentImageData);
+        imageUrl = await uploadTask.ref.getDownloadURL();
+        console.log("Image uploaded successfully:", imageUrl);
+      } catch (storageErr) {
+        console.error("Storage Error:", storageErr);
+        throw new Error(`Image upload failed: ${storageErr.message}. Check your Firebase Storage rules.`);
+      }
     }
 
     const productData = {
@@ -198,18 +206,20 @@ form.onsubmit = async (e) => {
       updatedAt: firebase.firestore.FieldValue.serverTimestamp()
     };
 
+    console.log("Saving product data to Firestore...");
     if (id) {
       await db.collection('products').doc(id).update(productData);
     } else {
       productData.createdAt = firebase.firestore.FieldValue.serverTimestamp();
       await db.collection('products').add(productData);
     }
+    console.log("Product saved successfully!");
 
     closeModal();
     loadProducts();
   } catch (error) {
     console.error("Error saving product:", error);
-    alert("Error saving product. Check console.");
+    alert("❌ Error: " + error.message);
   } finally {
     saveBtn.disabled = false;
     saveBtn.innerText = originalBtnText;
